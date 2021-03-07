@@ -137,7 +137,8 @@ h2 {
 .icon {
   margin: 0 1rem 0 0;
 }
-.icon.fa-mobile-alt {
+.icon.fa-mobile-alt,
+.icon.fa-bookmark {
   width: 15px;
   text-align: center;
 }
