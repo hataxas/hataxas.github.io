@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic_Tac_Toe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="header">
+          <h1>Tic-Tac-Toe</h1>
+        </div>
+        <div id="info" class="info">
+          <div class="info__players">
+            <div class="info__player1">
+              <input id="player1" type="text" placeholder="Name player X" />
+            </div>
+            <div class="info__player2">
+              <input id="player2" type="text" placeholder="Name player O " />
+            </div>
+          </div>
+          <div class="info__displays">
+            <div class="info__display">
+              <span id="p1Display">0</span>
+            </div>
+            <div class="info__message info__display">
+              <span id="message">x turn!</span>
+            </div>
+            <div class="info__display">
+              <span id="p2Display">0</span>
+            </div>
+          </div>
+          <div class="info__button">
+            <a id="reset" class="button" href="#">Play Agan</a>
+          </div>
+        </div>
+        <div class="field">
+          <div class="cells">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+          </div>
+        </div>
+        <div id="new-game" class="new-game">
+          <a id="new" class="button" href="#">New Game</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
