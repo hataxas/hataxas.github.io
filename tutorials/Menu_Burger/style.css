@@ -1,0 +1,267 @@
+/* Очищаем отступы и границы */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* Меняем подсчет ширины блока (padding и border включены в размеры блока) */
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Убираем линии обводки у некоторых браузеров */
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+/* Делаем перечисленные html тэги блочными */
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+/* Уравниваем параметры шрифтов и элементов для разных браузеров */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+/* Делаем чтобы тэги input наследовали семейство шрифта */
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.wrapper {
+}
+/* img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+} */
+.header {
+  /* чтобы наша шапка была зафиксирована сверху экрана поверх всего контента */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+/* создаем подложку для меню на всю ширину и высоту нашей шапки */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #5e5373;
+  z-index: 2;
+}
+.container {
+  /* ограничиваем ширину контентной части */
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.header__body {
+  position: relative;
+  /* показываем контентную часть шапки (сейчас она скрыта под подложкой) временно для наглядности */
+  /* z-index: 2; */
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+}
+.header__logo {
+  /* запрещаем логотипу увеличиваться и уменьшаться и задаем его размер*/
+  flex: 0 0 60px;
+  border-radius: 50%;
+  /* скрываем квадратную картинку под круглым логотипом (чтобы она не выглядывала из под него)*/
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+.header__logo img {
+  /* чтобы картинка подстраивалась под размер header__logo */
+  max-width: 100%;
+  /* если возникают проблемы с подрезанием картинки применяем */
+  display: block;
+}
+.header__burger {
+  /* скрываем бургер (на всякий случай) для всех остальных разрешений экрана */
+  display: none;
+}
+.header__menu {
+}
+.header__list {
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+.header__list li {
+  margin: 0 0 0 20px;
+}
+.header__link {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+.content {
+  /* отступаем сверху чтобы шапка не закрывала наш контент */
+  padding: 100px 0 0 0;
+}
+.content__text {
+  font-size: 18px;
+  line-height: 25px;
+}
+.content__text p {
+  margin: 0 0 20px 0;
+}
+
+/* меняем меню при ширине экрана меньше 767px */
+/* if(width <= 767px) (порядок важен медиа запросы идут в конце в порядке убывания размера экрана)*/
+@media (max-width: 767px) {
+  /* рисуем бургер (3 полоски) */
+  .header__burger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    z-index: 3;
+    cursor: pointer;
+  }
+  .header__burger::before,
+  .header__burger::after {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    transition: all 0.3s ease 0s;
+  }
+  .header__burger::before {
+    top: 0;
+  }
+  .header__burger::after {
+    bottom: 0;
+  }
+  .header__burger span {
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 9px;
+    transition: all 0.3s ease 0s;
+  }
+  /* делаем из бургера крестик */
+  .header__burger.active::before {
+    transform: rotate(45deg);
+    top: 9px;
+  }
+  .header__burger.active::after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+  }
+  .header__burger.active span {
+    transform: scale(0);
+  }
+  /* убираем пункты меню */
+  .header__menu {
+    position: fixed;
+    /* убираем меню вверх */
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* для того чтобы если наше меню не влезает в размеры экрана можно было скролить его*/
+    overflow: auto;
+    background-color: #18b5a4;
+    /* при помощи z-index делаем так чтобы меню было скрыто под подложкой */
+    z-index: 1;
+    padding: 70px 10px 20px 10px;
+    transition: all 0.3s ease 0s;
+  }
+  .header__menu.active {
+    top: 0;
+    transition: all 0.3s ease 0s;
+  }
+  body.lock {
+    /* делаем так чтобы наш контент не скролился когда открыто меню */
+    overflow: hidden;
+  }
+  .header__body {
+    /* делаем шапку поуже на маленьких экранах */
+    height: 50px;
+  }
+  .header__logo {
+    /* уменьшаем размер логотипа */
+    flex: 0 0 40px;
+  }
+  .header__list {
+    /* пункты меню отображаем в столбик */
+    display: block;
+  }
+  .header__list li {
+    margin: 0 0 20px 0;
+  }
+}
+/* меняем контент тоже */
+@media (max-width: 767px) {
+  .content {
+    padding: 70px 0 0 0;
+  }
+}

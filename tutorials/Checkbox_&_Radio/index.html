@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox & Radio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form action="#" class="block-form">
+      <div class="block-form__title">Стили элементов форм</div>
+      <!-- оболочка для каждого элемента формы -->
+      <div class="block-form__input">
+        <div class="checkbox">
+          Выключатель №1
+          <input checked type="checkbox" name="checkbox_1">
+        </div>
+      </div>
+      <div class="block-form__input">
+        <!-- Label -->
+        <div class="checkbox">
+          Выключатель №2
+          <input type="checkbox" name="checkbox_2">
+        </div>
+      </div>
+      <div class="block-form__input">
+        <div class="radiobuttons">
+          <div class="radiobuttons__item">
+            Вариант №1
+            <input checked type="radio" value="1" name="radio">
+          </div>
+          <div class="radiobuttons__item">
+            Вариант №2
+            <input type="radio" value="2" name="radio">
+          </div>
+          <div class="radiobuttons__item">
+            Вариант №3
+            <input type="radio" value="3" name="radio">
+          </div>
+        </div>
+      </div>
+      <button class="button" type="submit">
+        <span>Submit</span>
+      </button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

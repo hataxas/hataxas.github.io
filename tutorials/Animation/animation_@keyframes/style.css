@@ -1,0 +1,122 @@
+.wrapper {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@-webkit-keyframes white-circle {
+  0% {
+    left: 0;
+  }
+  50% {
+    background-color: red;
+    border-radius: 0;
+    top: 200px;
+  }
+  100% {
+    left: 600px;
+    background-color: yellow;
+  }
+}
+
+@keyframes white-circle {
+  0% {
+    left: 0;
+  }
+  50% {
+    background-color: red;
+    border-radius: 0;
+    top: 200px;
+  }
+  100% {
+    left: 600px;
+    background-color: yellow;
+  }
+}
+
+@-webkit-keyframes blue-circle {
+  0% {
+    background-color: blue;
+    left: 0;
+    top: 200px;
+  }
+  50% {
+    background-color: red;
+    height: 10px;
+    top: 0;
+  }
+  100% {
+    background-color: blue;
+    left: 600px;
+    top: 200px;
+  }
+}
+
+@keyframes blue-circle {
+  0% {
+    background-color: blue;
+    left: 0;
+    top: 200px;
+  }
+  50% {
+    background-color: red;
+    height: 10px;
+    top: 0;
+  }
+  100% {
+    background-color: blue;
+    left: 600px;
+    top: 200px;
+  }
+}
+
+.content__container {
+  padding: 50px;
+  margin: 0 auto;
+  width: 1000px;
+  height: 300px;
+  background-color: #464644;
+}
+
+.content__container-1 {
+  margin: 0 0 20px 0;
+}
+
+.content__container-2 {
+  background-color: grey;
+}
+
+.content__circle {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+}
+
+.content__circle-1 {
+  -webkit-animation-name: white-circle;
+          animation-name: white-circle;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.content__circle-2 {
+  -webkit-animation: blue-circle 5s cubic-bezier(0.86, 0, 0.07, 1) 0s infinite alternate forwards;
+          animation: blue-circle 5s cubic-bezier(0.86, 0, 0.07, 1) 0s infinite alternate forwards;
+}
+
+.content:hover .content__circle {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}

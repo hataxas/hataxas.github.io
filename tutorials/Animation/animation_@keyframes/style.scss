@@ -1,0 +1,93 @@
+.wrapper {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+//! создаем ключевые кадры с именем white-circle
+//? описывают как будут меняться свойства объекта во времени от начала( from или 0%) до конца (to или 100%)
+@keyframes white-circle {
+  0% {
+    left: 0;
+  }
+  50% {
+    background-color: red;
+    border-radius: 0;
+    top: 200px;
+  }
+  100% {
+    left: 600px;
+    background-color: yellow;
+  }
+}
+
+//! создаем ключевые кадры с именем blue-circle
+@keyframes blue-circle {
+  0% {
+    background-color: blue;
+    left: 0;
+    top: 200px;
+  }
+  50% {
+    background-color: red;
+    height: 10px;
+    top: 0;
+  }
+  100% {
+    background-color: blue;
+    left: 600px;
+    top: 200px;
+  }
+}
+
+.content {
+  &__container {
+    padding: 50px;
+    margin: 0 auto;
+    width: 1000px;
+    height: 300px;
+    background-color: #464644;
+    &-1 {
+      margin: 0 0 20px 0;
+    }
+    &-2 {
+      background-color: grey;
+    }
+  }
+
+  &__circle {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    left: 0;
+
+    &-1 {
+      //! применяем заданные ключевые классы для нашего объекта и описываем как именно будет происходить изменение:
+
+      animation-name: white-circle; //? имя @keyframes (можно указывать несколько через запятую)
+
+      animation-duration: 3s; //? продолжительность проигрывания анимации (можно указывать несколько значений через запятую для каждого @keyframes)
+
+      animation-timing-function: ease-in-out; //? задаем сценарий развития анимации. Здесь те же значения что и для transitions (можно указывать несколько значений через запятую для каждого @keyframes)
+
+      animation-delay: -1.5s; //? анимация начинается после задержки в -1.5с (то есть со средины цикла) можно устанавливать любые значения (можно указывать несколько значений через запятую для каждого @keyframes)
+
+      animation-iteration-count: infinite; //? проигрывается бесконечно (по умолчанию значение 1)(можно указать числовое значение - сколько раз проигрывать) (можно указывать несколько значений через запятую для каждого @keyframes)
+
+      animation-direction: alternate; //? каждые четный проход в другую сторону (по умолчанию normal - проигрывается все время слева на право)(если напишем alternate-reverse то каждый нечетный проход будет в другую сторону, а если оставим просто reverse то анимация будет происходить в одну сторону задом на перед) (можно указывать несколько значений через запятую для каждого @keyframes)
+
+      animation-fill-mode: forwards; //? при завершении анимации применятся конечные свойства ключевых кадров (по умолчанию none - применятся начальные значен.)(можно указывать несколько значений через запятую для каждого @keyframes)
+    }
+
+    &-2 {
+      //! применяем заданные ключевые классы для нашего объекта при помощи универсальной функции
+      //? animation: name duration timing-function delay iteration-count direction fill-mode;
+      animation: blue-circle 5s cubic-bezier(0.86, 0, 0.07, 1) 0s infinite alternate forwards;
+    }
+  }
+}
+.content:hover .content__circle {
+  //! Позволяет запускать либо приостанавливать анимацию по какаму-то событию
+  animation-play-state: paused; //? при наведении на наш контейнер анимация останавливается (по умолчанию значение running) если мы зададим значение none анимация будет стартовать с начала
+}

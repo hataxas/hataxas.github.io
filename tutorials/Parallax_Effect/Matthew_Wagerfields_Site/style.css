@@ -1,0 +1,339 @@
+/* Обнуление */
+/* Очищаем отступы и границы */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* Меняем подсчет ширины блока (padding и border включены в размеры блока) */
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Убираем линии обводки у некоторых браузеров */
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+/* Делаем перечисленные html тэги блочными */
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+/* Уравниваем параметры шрифтов и элементов для разных браузеров */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+/* Делаем чтобы тэги input наследовали семейство шрифта */
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #000;
+}
+.wrapper {
+  overflow: hidden;
+  /* убираем прозрачность */
+  opacity: 0;
+}
+.wrapper.active {
+  /* делаем опять прозрачным чтобы появлялось содержимое страницы постепенно */
+  opacity: 1;
+  transition: all 1s ease 0s;
+}
+.wrapper.active .parallax__wave {
+  opacity: 1;
+  transition: all 1s ease 1s;
+}
+.wrapper.active .parallax__rope {
+  opacity: 1;
+  transition: all 1s ease 1.8s;
+}
+.wrapper.active .parallax__litehouse {
+  bottom: 130px;
+  transition: all 0.8s ease 2.5s;
+}
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+}
+.parallax {
+  /* мы получаем полноэкранную анимацию, которую можем прокручивать и внизу будет текст */
+  flex: 1 0 100%;
+  position: relative;
+  overflow: hidden;
+}
+/* делаем градиент */
+.parallax::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 60%);
+}
+.parallax__list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.parallax__list li {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.parallax__bg {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  background: url("img/background.jpg") 50% 100% / cover no-repeat;
+}
+.parallax__rope {
+  position: absolute;
+  width: 120%;
+  left: -10%;
+  opacity: 0;
+}
+.parallax__rope img {
+  width: 100%;
+}
+.parallax__element {
+  position: absolute;
+}
+.parallax__element span {
+  display: inline-block;
+  transform-origin: 50% 0;
+  width: 280px;
+  height: 280px;
+  margin: 0 0 0 -140px;
+  animation: swing 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+/* первая веревка с элементами */
+.parallax__rope-1 {
+  top: 5%;
+  transform: scale(1);
+}
+.parallax__element-1 {
+  top: 28%;
+  left: 20%;
+}
+.parallax__element-1 span {
+  background: url("img/clouds/board-cloud-2.png") 0 0 / 100% no-repeat;
+}
+.parallax__element-2 {
+  top: 46%;
+  left: 40%;
+}
+.parallax__element-2 span {
+  background: url("img/clouds/board-cloud-1.png") 0 0 / 100% no-repeat;
+}
+.parallax__element-3 {
+  top: 24%;
+  left: 80%;
+}
+.parallax__element-3 span {
+  background: url("img/clouds/board-birds.png") 0 0 / 100% no-repeat;
+}
+.parallax__rope-1 .parallax__element {
+  transform: scale(0.6);
+}
+/* вторая веревка с элементами */
+.parallax__rope-2 {
+  top: -1.66667%;
+  transform: scale(1.05556);
+}
+.parallax__element-4 {
+  top: 17%;
+  left: 10%;
+}
+.parallax__element-4 span {
+  background: url("img/clouds/board-cloud-1.png") 0 0 / 100% no-repeat;
+}
+.parallax__element-5 {
+  top: 56%;
+  left: 50%;
+}
+.parallax__element-5 span {
+  background: url("img/clouds/board-cloud-4.png") 0 0 / 100% no-repeat;
+}
+.parallax__rope-2 .parallax__element {
+  transform: scale(0.75556);
+}
+/* третья веревка с элементами */
+.parallax__rope-3 {
+  top: -11.66667%;
+  transform: scale(1.13889);
+}
+.parallax__element-6 {
+  top: 57%;
+  left: 30%;
+}
+.parallax__element-6 span {
+  background: url("img/clouds/board-birds.png") 0 0 / 100% no-repeat;
+}
+.parallax__element-7 {
+  top: 65%;
+  left: 60%;
+}
+.parallax__element-7 span {
+  background: url("img/clouds/board-cloud-2.png") 0 0 / 100% no-repeat;
+}
+.parallax__element-8 {
+  top: 45%;
+  left: 80%;
+}
+.parallax__element-8 span {
+  background: url("img/clouds/board-cloud-3.png") 0 0 / 100% no-repeat;
+}
+.parallax__rope-3 .parallax__element {
+  transform: scale(0.98889);
+}
+/* волны */
+.parallax__wave {
+  opacity: 0;
+  position: absolute;
+  background: url("img/waves/wave-plain.png") 0 0 / auto 101% repeat-x;
+  left: -100%;
+  width: 300%;
+}
+.parallax__wave-1 {
+  bottom: 180px;
+  height: 86px;
+  animation: wave 7.11111s 0.1s infinite linear;
+  background: url("img/waves/wave-paint.png") 0 0 / auto 101% repeat-x;
+}
+.parallax__wave-2 {
+  bottom: 144px;
+  height: 115px;
+  animation: wave 6.66667s 0.1s infinite linear;
+}
+.parallax__wave-3 {
+  bottom: 108px;
+  height: 144px;
+  animation: wave 6.22222s 0.1s infinite linear;
+  background: url("img/waves/wave-paint.png") 0 0 / auto 101% repeat-x;
+}
+.parallax__wave-4 {
+  bottom: 72px;
+  height: 173px;
+  animation: wave 5.77778s 0.1s infinite linear;
+}
+.parallax__wave-5 {
+  bottom: -1px;
+  height: 230px;
+  animation: wave 4.8888s 0.1s infinite linear;
+}
+.parallax__wave-6 {
+  bottom: -72px;
+  height: 288px;
+  animation: wave 4.5s 0.1s infinite linear;
+  background: url("img/waves/wave-paint.png") 0 0 / auto 101% repeat-x;
+}
+
+/* маяк */
+.parallax__litehouse {
+  background: url("img/lighthouse.png") 0 0 no-repeat;
+  width: 320px;
+  height: 560px;
+  position: absolute;
+  right: 12%;
+  bottom: -100%;
+  animation: lighthouse 4s 0.1s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.content {
+}
+
+/* задаем сценарии для анимации */
+@keyframes swing {
+  0% {
+    transform: rotateZ(10deg);
+  }
+  100% {
+    transform: rotateZ(-10deg);
+  }
+}
+@keyframes wave {
+  0% {
+    transform: rotateZ(0deg) translate3d(0, 10%, 0) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg) translate3d(0, 10%, 0) rotateZ(-360deg);
+  }
+}
+@keyframes lighthouse {
+  0% {
+    transform: translate3d(15%, 0, 0) rotateZ(10deg);
+  }
+  100% {
+    transform: translate3d(-15%, 0, 0) rotateZ(-10deg);
+  }
+}

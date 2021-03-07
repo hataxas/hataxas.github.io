@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Transform</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="content">
+      <h1>CSS Transform</h1>
+      <div class="content__2D">
+        <section class="content__block">
+          <h2>Translate (x, y)</h2>
+          <div class="content__translate square">
+            <p class="square__text">translate</p>
+          </div>
+          <p><strong>translate</strong> - сдвигает элемент на новое место относительно начального положения объекта вправо и вниз, используя координаты X и Y.</p>
+        </section>
+        <section class="content__block">
+          <h2>Scale (x, y)</h2>
+          <div class="content__scale square">
+            <p class="square__text">scale</p>
+          </div>
+          <p><strong>scale</strong> - масштабирует элементы, делая их больше или меньше. По умолчанию scale(1, 1). При значениях больше 1 объект увеличивается, от 0 да 1 - уменьшается, при отрицательных значениях отображается зеркально</p>
+        </section>
+        <section class="content__block">
+          <h2>Rotate (n+deg)</h2>
+          <div class="content__rotate square">
+            <p class="square__text">rotate</p>
+          </div>
+          <p><strong>rotate</strong> - поворачивает элементы на заданное колличество градусов, по умолчанию rotate(0deg)</p>
+        </section>
+        <section class="content__block">
+          <h2>Skew (x+deg, y+deg)</h2>
+          <div class="content__skew square">
+            <p class="square__text">skew</p>
+          </div>
+          <p><strong>skew</strong> - деформирует (искажает) стороны объекта относительно координатных осей. По умолчанию skew(0deg, 0deg)</p>
+        </section>
+        <section class="content__block">
+          <h2>Matrix (a, c, b, d, x, y)</h2>
+          <div class="content__matrix square">
+            <p class="square__text">matrix</p>
+          </div>
+          <p><strong>matrix</strong> - позволяет объединить несколько функций 2D-трансформаций в одной. По умолчанию matrix(1, 0, 0, 1, 0, 0) <br> Значение <span class="bold">a</span>  изменяет масштаб по горизонтали. Значение от 0 до 1 уменьшает элемент, больше 1 — увеличивает. <br> Значение <span class="bold">c</span> деформирует (сдвигает) стороны элемента по оси Y, положительное значение — вверх, отрицательное — вниз. <br> Значение <span class="bold">b</span> деформирует (сдвигает) стороны элемента по оси X, положительное значение — влево, отрицательное — вправо. <br> Значение <span class="bold">d</span> изменяет масштаб по вертикали. Значение меньше 1 уменьшает элемент, больше 1 — увеличивает. <br> Значение <span class="bold">x</span> смещает элемент по оси X, положительное — вправо, отрицательное — влево. <br> Значение <span class="bold">y</span> смещает элемент по оси Y, положительное значение — вниз, отрицательное — вверх.</p>
+        </section>
+        <section class="content__block">
+          <h2>Множественные 2D трансформации</h2>
+          <div class="content__multi square">
+            <p class="square__text">multi</p>
+          </div>
+          <p><strong>Множественнaя 2D трансформация</strong> - позволяет объединить несколько функций 2D-трансформаций в одной. Пр. transform: translate(30px, 30px) rotate(45deg) scale(0.8);</p>
+        </section>
+        <section class="content__block">
+          <h2>Transform-origin</h2>
+          <div class="content__transform-origin square">
+            <p class="square__text">transform-origin</p>
+          </div>
+          <p><strong>transform-origin</strong> - позволяет сместить центр трансформации, относительно которого происходит изменение положения/размера/формы элемента. По умолчанию center (50% 50%)
+          </p>
+        </section>
+        <section class="content__block">
+          <h2>Perspective, perspective-origin</h2>
+          <div class="content__wrapper3d">
+            <div class="content__perspective-origin square">
+              <p class="square__text">perspective-origin</p>
+            </div>
+          </div>
+          <p><strong>perspective-origin</strong> - установка глубины и смена точки начала координат. По умолчанию perspective: 0
+          </p>
+        </section>
+        <section class="content__block">
+          <h2>Translate3d (x, y, z)</h2>
+          <div class="content__wrapper3d">
+            <div class="content__translate3d square">
+              <p class="square__text">translate3d</p>
+            </div>
+          </div>
+          <p><strong>Translate3d</strong> - по аналогии со своим 2D братом, это значение задает перемещение элемента, но в 3D-пространстве. Помимо оси X и Y добавляется ось Z. По умолчанию translate3d(0px, 0px, 0px)</p>
+        </section>
+        <section class="content__block">
+          <h2>Scale3d (x, y, z)</h2>
+          <div class="content__wrapper3d">
+            <div class="content__scale3d square">
+              <p class="square__text">scale3d</p>
+            </div>
+          </div>
+          <p><strong>Scale3d</strong> - задает трехмерное масштабирование по одной из осей X Y Z. Фактически повторяет функционал своего 2d аналога. По умолчанию scale3d(1, 1, 1)</p>
+        </section>
+        <section class="content__block">
+          <h2>Rotate3d (x, y, z, deg)</h2>
+          <div class="content__wrapper3d">
+            <div class="content__rotate3d square">
+              <p class="square__text">rotate3d</p>
+            </div>
+          </div>
+          <p><strong>Rotate3d</strong> - вращает элемент относительно трех осей. Элемент поворачивается под углом, задаваемым последним параметром относительно вектора направления x,y,z. По умолчанию rotate3d(1, 1, 1, 0deg)</p>
+        </section>
+        <section class="content__block">
+          <h2>Matrix3d (n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)</h2>
+          <div class="content__wrapper3d">
+            <div class="content__matrix3d square">
+              <p class="square__text">matrix3d</p>
+            </div>
+          </div>
+          <p><strong>Matrix3d</strong> - задает трехмерное преобразование как однородную матрицу размером 4×4 с шестнадцатью значениями в столбцах.
+          Генератор 3D матриц - http://ds-overdesign.com/transform/matrix3d.html</p>
+        </section>
+        <section class="content__block">
+          <h2>Множественные 3D трансформации</h2>
+          <div class="content__wrapper3d">
+            <div class="content__multi3d square">
+              <p class="square__text">multi3d</p>
+            </div>
+          </div>
+          <p><strong>Множественные 3D трансформации</strong> - позволяет объединить несколько функций 3D-трансформаций в одной. Пр. transform: translate3d(30px, 30px,30px) rotate3d(1,1,1,30deg);</p>
+        </section>
+        <section class="content__block">
+          <h2>Transform-style</h2>
+          <div class="content__wrapper3d">
+            <div class="content__transform-style square">
+              <p class="square__text">transform-style</p>
+            </div>
+          </div>
+          <p><strong>Transform-style</strong> - определяет, как дочерние элементы должны отображаться в 3D-пространстве. По умолчанию transform-style:flat</p>
+        </section>
+        <section class="content__block">
+          <h2>Backface-visibility</h2>
+            <div class="content__backface-visibility square">
+              <div class="content__backface-visibility-body">
+                <div class="content__backface-visibility-front">
+                  <p class="square__text">front</p>
+                </div>
+                <div class="content__backface-visibility-back">
+                  <p class="square__text">back</p>
+                </div>
+              </div>
+            </div>
+          <p><strong>Backface-visibility</strong> - отображение обратной стороны объекта. По умолчанию backface-visibility: visible;
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

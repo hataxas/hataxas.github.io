@@ -1,0 +1,97 @@
+/* обнуление */
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* стили для демонстрации */
+html,
+body {
+  height: 100%;
+}
+
+h1 {
+  padding: 20px 50px;
+}
+.block {
+  padding: 0 50px;
+  max-width: 1170px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.block__item {
+  width: 50%;
+  margin: 0 0 50px 0;
+}
+.text {
+  margin: 0 0 10px;
+}
+/* основные стили */
+.square {
+  width: 150px;
+  height: 150px;
+  background-color: #9370db;
+}
+.rectangle {
+  width: 300px;
+  height: 150px;
+  background-color: #8a2bea;
+}
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ba55d3;
+}
+.oval {
+  width: 300px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #7b68ee;
+}
+.triangle-up {
+  width: 0;
+  height: 0;
+  /* делаем прозрачные (transparent) borders справа и слева а снизу нужного нам цвета в 2 раза больше (можно менять форму треугольника меняя значения)*/
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid #c71585;
+}
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid #ffb6c1;
+}
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid transparent;
+  border-right: 100px solid #f08080;
+  border-top: 50px solid transparent;
+}
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid transparent;
+  border-left: 100px solid #cd5c5c;
+  border-top: 50px solid transparent;
+}
+.parallelogram {
+  width: 200px;
+  height: 100px;
+  background-color: #ffd700;
+  transform: skew(20deg);
+}
+.trapezoid {
+  width: 200px;
+  border-bottom: 100px solid #8b008b;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}

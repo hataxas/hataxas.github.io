@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Форма</h1>
+  <!-- формы позволяют взаимодействовать с пользователем и передавать данные на сервер-->
+
+<!-- form оболочка для всех тэгов формы (блочный тэг)-->
+<!-- <form action="адресс сервера на который передаются данные из формы" method="get"(method="get" используется по умолчанию)></form> -->
+
+<form action="#" method="POST" enctype="multipart/form-data">
+
+  <!-- Поле ввода (строчный тэг)-->
+  <input tabindex="1" type="text" name="username" value="" placeholder="Введите имя">
+  <input tabindex="2" type="password" name="password" value="" placeholder="Введите пароль">
+  <input tabindex="3" type="tel" name="tel" value="" placeholder="Введите номер телефона">
+
+  <!-- Чтобы поля ввода были одно под другим заключаем их в тэги div -->
+  <div>
+    <input tabindex="4" type="date">
+  </div>
+  <div>
+    <input tabindex="5" type="color">
+  </div>
+  <div>
+    <input tabindex="6" type="file" name="foto">
+  </div>
+  <!-- Две группы радио кнопок (имена у кнопок одной группы должны быть одинаковыми)-->
+  <div>
+    <p>
+      <input tabindex="7" checked type="radio" name="Любимый цвет" value="Розовый">
+      Розовый
+    </p>
+    <p>
+      <input tabindex="7" type="radio" name="Любимый цвет" value="Синий">
+      Синий
+    </p>
+    <p>
+      <input tabindex="7" type="radio" name="Любимый цвет" value="Желтый">
+      Желтый
+    </p>
+  </div>
+
+  <br>
+
+  <div>
+    <p>
+      <input type="radio" name="Другой блок кнопок" value="Розовый">
+      Розовый
+    </p>
+    <p>
+      <input disabled type="radio" name="Другой блок кнопок" value="Синий">
+      Синий
+    </p>
+    <p>
+      <input checked type="radio" name="Другой блок кнопок" value="Желтый">
+      Желтый
+    </p>
+  </div>
+
+  <br>
+  <!-- Чекбоксы -->
+  <div>
+    <p>
+      <input tabindex="8" checked type="checkbox" name="bike Hataxa" value="yes">
+      Наличие велосипеда у Мамы
+    </p>
+    <p>
+      <input tabindex="9" type="checkbox" name="bike Lunich" value="yes">
+      Наличие велосипеда у Папы
+    </p>
+    <p>
+      <input tabindex="10" type="checkbox" name="bike Alisa" value="yes">
+      Наличие велосипеда у Лиси
+    </p>
+    <p>
+      <input tabindex="11" type="checkbox" name="bike Katerina" value="yes">
+      Наличие велосипеда у Коти
+    </p>
+  </div>
+  <!-- Поле ввода текста (размер будет задаваться в css или в js) -->
+  <textarea name="text" placeholder="Введите текст"></textarea>
+
+  <!-- Выпадающий список -->
+  <div>
+    <select name="color">
+      <option value="green">Зеленый</option>
+      <option selected value="blue">Синий</option>
+      <option disabled value="red">Красный</option>
+    </select>
+  </div>
+  <br>
+  <br>
+  <div>
+    <select multiple name="color multiple">
+      <option disabled value="green">Зеленый</option>
+      <option value="blue">Синий</option>
+      <option value="red">Красный</option>
+    </select>
+
+    <!-- Кнопка -->
+    <button type="submit">Отправить</button>
+    <button type="reset">Очистить форму</button>
+    <Button type="button">Обычная кнопка</Button></div>
+  </div>
+</form>
+
+</body>
+</html>

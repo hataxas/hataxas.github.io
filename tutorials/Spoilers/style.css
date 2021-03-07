@@ -1,0 +1,146 @@
+/* Обнуление */
+/* Очищаем отступы и границы */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* Меняем подсчет ширины блока (padding и border включены в размеры блока) */
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Убираем линии обводки у некоторых браузеров */
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+/* Делаем перечисленные html тэги блочными */
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+/* Уравниваем параметры шрифтов и элементов для разных браузеров */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+/* Делаем чтобы тэги input наследовали семейство шрифта */
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.wrapper {
+  height: 100%;
+  padding: 50px;
+}
+.block {
+}
+.block__item {
+  margin: 0 0 20px 0;
+}
+.block__title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding: 0 0 0 30px;
+  display: inline-block;
+  cursor: pointer;
+}
+/* делаем стрелочку при помощи псевдоэлементов */
+.block__title::before,
+.block__title::after {
+  content: "";
+  width: 10px;
+  height: 1px;
+  background-color: #000;
+  position: absolute;
+  top: 7px;
+  transition: all 0.3s ease 0s;
+}
+.block__title::before {
+  /* наклоняем палочку на 40 градусов*/
+  transform: rotate(40deg);
+  left: 0;
+}
+.block__title::after {
+  transform: rotate(-40deg);
+  left: 8px;
+}
+
+.block__title.active::before,
+.block__title.active::after {
+  background-color: red;
+  transition: all 0.3s ease 0s;
+}
+.block__title.active::before {
+  transform: rotate(-40deg);
+}
+.block__title.active::after {
+  transform: rotate(40deg);
+}
+.block__text {
+  overflow: hidden;
+  padding: 10px 0 0 0;
+  transition: max-height 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  max-height: 0;
+}
+.block__text.active {
+  /* нельзя поставить автоматическую высоту, поэтому задаем с запасом (чем больше запас, тем больше задержка перед сворачиванием окна время transition, функция и запас ширины подбирается под конкретную задачу) */
+  max-height: 300px;
+  transition: max-height 1s ease 0s;
+}

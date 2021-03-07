@@ -1,0 +1,116 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.title {
+  text-align: left;
+  text-transform: uppercase;
+  font-family: Arial;
+  color: rgba(0, 0, 0, 0.7);
+}
+.wrapper {
+  height: 100%;
+}
+.wrapper:hover .button {
+  width: 700px;
+}
+.button {
+  width: 400px;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 60px;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 18px;
+  border-radius: 10px;
+  top: 0;
+  text-align: center;
+  position: relative;
+  margin: 0 0 10px 0;
+  //! Задаем время перехода
+  transition-duration: 5s;
+}
+.button1 {
+  color: #fff;
+  background-color: #5e5373;
+  box-shadow: 0 5px 0px #3c354a;
+  //! длительность перехода
+  //? переход от состояния .button_1 к состоянию.button_1:hover занимает 1s для background-color и 100ms для top и для box-shadow
+  transition-duration: 1s, 100ms, 100ms;
+  //! cвойства которые будем анимировать
+  //? если мы хотим анимировать какие-то конкретные свойства указываем их через запятую
+  //? по умолчанию transition-property: all;
+  transition-property: background-color, top, box-shadaw;
+  //! задержка перехода
+  //? cоздадим сценарий для анимации укажем через какое время начнутся переходы
+  transition-delay: 0s, 0.5s, 0.5s;
+}
+.button1:hover {
+  background-color: #18b5a4;
+  box-shadow: 0 3px 0px #3c354a;
+  top: 2px;
+}
+
+.button2 {
+  color: #fff;
+  background-color: #5e5373;
+  //! cценарий развития анимации по умолчанию ease
+  /* переход начинается медленно к середине ускоряется и опять замедляется */
+  transition-timing-function: ease;
+}
+.button3 {
+  color: #fff;
+  background-color: #18b5a4;
+  /* переход начинается медленно и плавно ускоряется */
+  transition-timing-function: ease-in;
+}
+.button4 {
+  color: #5e5373;
+  background-color: #ece89d;
+  /* переход начинается быстро и плавно замедляется */
+  transition-timing-function: ease-out;
+}
+.button5 {
+  color: #fff;
+  background-color: #5e5373;
+  /* переход происходит с одинаковой медленной скоростью */
+  transition-timing-function: ease-in-out;
+}
+.button6 {
+  color: #fff;
+  background-color: #44f87e;
+  /* переход происходит с одинаковой скоростью */
+  transition-timing-function: linear;
+}
+.button7 {
+  color: #fff;
+  background-color: #8899ff;
+  /* переход разбивается на одинаковые отрезки, в данном случае на 10 частей*/
+  transition-timing-function: steps(10, start);
+}
+.button8 {
+  color: #fff;
+  background-color: #f21212;
+  /* мы можем задавать разные значения и анимация будет вести себя по разному */
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.button9 {
+  color: #fff;
+  background-color: #f0d919;
+  //! Универсальное свойство transition
+  //? property(свойства) duration(длительность) timing-function(сценарий) delay(задержка)
+  transition: all 1s ease 0s;
+}
+
+//! кнопка меняется при наведении мыши
+.button10 {
+  color: #fff;
+  background-color: #f89012;
+  //? можно указывать через запятую для разных свойств
+  transition: padding 1s ease 0s, color 2s ease-in 0.5s;
+}
+.button10:hover {
+  background-color: #18b5a4;
+  padding: 20px;
+}

@@ -1,0 +1,267 @@
+// Очищаем отступы и границы
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+//Меняем подсчет ширины блока (padding и border включены в размеры блока)
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.wrapper {
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+h1 {
+  position: relative;
+  z-index: 2;
+}
+h2 {
+  position: relative;
+  z-index: 2;
+  margin: 50px 0 0 0;
+}
+p {
+  position: relative;
+  z-index: 2;
+}
+.square {
+  width: 150px;
+  height: 150px;
+  margin: 10px 0;
+  position: relative;
+  z-index: 0;
+  transition: all 0.8s ease 0s; // применяем анимацию к нашим квадратам для наглядности
+}
+p.square__text {
+  font-size: 16px;
+  text-transform: uppercase;
+  position: absolute;
+  //! выравнивание объекта по вертикали при известном размере
+  top: 50%; // выравниваем текст по центру по вертикали
+  margin: -8px 0 0 0; // сдвигаем текст отрицательным margin равным половине его высоты (чтобы стоял по центру)
+  //! выравнивание объекта по горизонтали если размер может меняться
+  left: 50%; // задаем левый отступ равный 50% от размера родителя
+  transform: translate(-50%, 0px); // сдвигаем объект на 50% его размера обратно чтобы он встал четко по центру
+}
+
+span.bold {
+  font-weight: 700;
+  color: rgb(248, 122, 122);
+}
+
+.content {
+  width: 90%;
+  margin: 30px auto;
+  padding: 20px;
+  text-align: left;
+  background-color: rgba(28, 32, 32, 0.877);
+  color: #fff;
+
+  &__2D {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__block {
+    margin: 10px 0;
+  }
+
+  &__translate {
+    background-color: #794f45;
+    &:hover {
+      transform: translate(
+        150px,
+        30px
+      ); //! если хотим сдвинуть вверх и влево - указываем отрицательные значения, если значения указать в % то объект сдвигается на указанное колличество % от своих ширины и высоты
+    }
+  }
+
+  &__scale {
+    background-color: #77608d;
+    transform: scale(-1, 1); // если значения одинаковые можно указывать только одно
+    &:hover {
+      transform: scale(
+        3,
+        1.5
+      ); //!При значениях больше 1 объект увеличивается, от 0 да 1 - уменьшается, при отрицательных значениях отображается зеркально
+    }
+  }
+
+  &__rotate {
+    background-color: #7a956b;
+    transform: rotate(0deg);
+    &:hover {
+      transform: rotate(
+        180deg
+      ); //! Поворачивает по часовой стрелке относительно положения 0deg. Отрицательные значения поворачивают против часовой стрелки
+    }
+  }
+
+  &__skew {
+    background-color: #794f45;
+    transform: skew(0deg, 0deg);
+    &:hover {
+      transform: skew(10deg, 30deg); //! искажает объект относительно осей x и y
+    }
+  }
+
+  &__matrix {
+    background-color: #77608d;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    &:hover {
+      transform: matrix(
+        //! масштаб по горизонтали (scale x)
+        1.5,
+        //! деформация по вертикали (skew y)
+        0.5,
+        //! деформация по горизонтали (skew x)
+        0,
+        //! масштаб по вертикали (scale y)
+        0.5,
+        //! cмещение по горизонтали (translate x)
+        300,
+        //! cмещение по вертикали (translate y)
+        -100
+      );
+    }
+  }
+
+  &__multi {
+    background-color: #7a956d;
+    transform: translate(0px, 0px) scale(1, 1) rotate(0deg);
+    &:hover {
+      transform: translate(300px, 0px) scale(2, 0.5) rotate(45deg); //! можно объединять несколько функций 2D-трансформаций в одной записи
+    }
+  }
+
+  &__transform-origin {
+    background-color: #794f45;
+    transform-origin: top left; //! cмещаем центр трансформации относительно которого происходит изменение (в данном случае верхний левый угол (значения можно указывать цифрами 0 0))
+    transform: rotate(0deg);
+    &:hover {
+      transform: rotate(-30deg);
+    }
+  }
+  //! Для каждого квадрата создаем дополнительную облолочку чтобы задавать перспективу
+  &__wrapper3d {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 10px 0;
+
+    perspective-origin: center; //! можем менять точку начала координат как и для transform-origin (по умолчанию center)
+    //свойство perspective можно задавать либо родителю, либо самому элементу
+    perspective: 400px; //! по умолчанию значение perspective для родителя 0px меняя это значение получаем глубину (чем ближе значение к 0 тем больше глубина)
+
+    transform-style: preserve-3d; //! задаем стиль трансформации в этом случае элемент как-бы проходит сквозь родителя (по умолчанию flat)
+  }
+
+  &__perspective-origin {
+    background-color: #77608d;
+    &:hover {
+      transform: perspective(200px) rotateX(30deg); //! так задаем перспективу элементу
+    }
+  }
+
+  &__translate3d {
+    background-color: #7a956b;
+    transform: translate3d(0px, 0px, 0px);
+    &:hover {
+      transform: translate3d(20px, 20px, 50px);
+    }
+  }
+
+  &__scale3d {
+    background-color: #77608d;
+    transform: scale3d(1, 1, 1);
+    &:hover {
+      transform: scale3d(2, 2, 0.5);
+    }
+  }
+
+  &__rotate3d {
+    background-color: #794f45;
+    transform: rotate3d(1, 1, 1, 0deg);
+    &:hover {
+      transform: rotate3d(1, 1, 1, 30deg); //! элемент поворачивается на угол 30 градусов относительно осей x, y и z
+    }
+  }
+  &__matrix3d {
+    background-color: #568a3b;
+    transform: matrix3d();
+    &:hover {
+      transform: matrix3d();
+    }
+  }
+
+  &__multi3d {
+    background-color: #794f45;
+    transform: translate3d(0px, 0px, 0px) rotate3d(1, 1, 1, 0deg);
+    &:hover {
+      transform: translate3d(-20px, -20px, 30px) rotate3d(1, 1, 1, 360deg);
+    }
+  }
+
+  &__transform-style {
+    display: flex;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: all 0.8s ease 0s;
+    width: 150px;
+    height: 150px;
+    transform: rotateX(0deg);
+    background-color: #7a956b;
+    &:hover {
+      transform: rotateX(45deg);
+    }
+  }
+  //! переворот карточки на обратную сторону
+  &__backface-visibility-body {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transition: all 0.8s ease 0s;
+    transform-style: preserve-3d;
+  }
+
+  &__backface-visibility-front,
+  &__backface-visibility-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__backface-visibility-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    background-color: #77608d;
+    backface-visibility: hidden;
+  }
+
+  &__backface-visibility-back {
+    transform: rotateY(-180deg);
+    background-color: rgba(121, 79, 69, 0.9);
+    backface-visibility: hidden;
+  }
+
+  &__backface-visibility:hover &__backface-visibility-body {
+    transform: rotateY(-180deg);
+  }
+}

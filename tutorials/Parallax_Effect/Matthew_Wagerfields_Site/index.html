@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax.js</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="page">
+      <div class="parallax">
+        <ul id="scene" class="parallax__list">
+          <!-- задаем атрибут data-depth="0.10", который отвечает за параллакс эффекты-->
+          <li data-depth="0.10">
+            <!-- background нашего параллакса-->
+            <div class="parallax__bg"></div>
+          </li>
+          <!-- веревки -->
+          <li data-depth="0.15">
+            <div class="parallax__rope parallax__rope-1">
+              <!-- на первой веревке у нас 3 элемента -->
+              <div class="parallax__element parallax__element-1"><span></span></div>
+              <div class="parallax__element parallax__element-2"><span></span></div>
+              <div class="parallax__element parallax__element-3"><span></span></div>
+              <img src="img/rope.png" alt="">
+            </div>
+          </li>
+          <li data-depth="0.30">
+            <div class="parallax__rope parallax__rope-2">
+              <!-- на второй веревке у нас 2 элемента -->
+              <div class="parallax__element parallax__element-4"><span></span></div>
+              <div class="parallax__element parallax__element-5"><span></span></div>
+              <img src="img/rope.png" alt="">
+            </div>
+          </li>
+          <li data-depth="0.60">
+            <div class="parallax__rope parallax__rope-3">
+              <!-- на третьей веревке у нас 3 элемента -->
+              <div class="parallax__element parallax__element-6"><span></span></div>
+              <div class="parallax__element parallax__element-7"><span></span></div>
+              <div class="parallax__element parallax__element-8"><span></span></div>
+              <img src="img/rope.png" alt="">
+            </div>
+          </li>
+          <!-- волны -->
+          <li data-depth="0.30">
+            <div class="parallax__wave parallax__wave-1"></div>
+          </li>
+          <li data-depth="0.40">
+            <div class="parallax__wave parallax__wave-2"></div>
+          </li>
+          <li data-depth="0.50">
+            <div class="parallax__wave parallax__wave-3"></div>
+          </li>
+          <li data-depth="0.60">
+            <!-- маяк -->
+            <div class="parallax__litehouse"></div>
+          </li>
+          <li data-depth="0.60">
+            <div class="parallax__wave parallax__wave-4"></div>
+          </li>
+          <li data-depth="0.80">
+            <div class="parallax__wave parallax__wave-5"></div>
+          </li>
+          <li data-depth="1.00">
+            <div class="parallax__wave parallax__wave-6"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="content"></div>
+    </div>
+  </div>
+
+  <!-- подключаю parallax.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <!-- подключаю мой js файл -->
+  <script src="js/script.js"></script>
+</body>
+</html>

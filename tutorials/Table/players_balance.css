@@ -1,0 +1,33 @@
+.table thead th {
+  vertical-align: top;
+  text-align: center;
+  font-size: 1.9vh;
+  width: 7.5%;
+}
+#link {
+  width: 10%;
+}
+.table td {
+  text-align: right;
+  font-size: 1.5vh;
+}
+.table td.first {
+  text-align: left;
+}
+td.text {
+  text-align: center;
+  font-size: 1.9vh;
+}
+.table td.positive {
+  color: #4CC546;
+}
+.table td.negative {
+  color: #EC3656;
+}
+
+li.page-item.disabled {
+  font-size: 1.9vh;
+}
+a.page-link {
+  font-size: 1.9vh;
+}
