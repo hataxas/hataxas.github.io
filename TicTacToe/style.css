@@ -93,7 +93,7 @@ h6 {
   margin: 0 auto;
   overflow: auto;
   padding: 5rem 7rem;
-  background-color: yellow;
+  background-color: #bc8f8f;
 }
 .container {
   width: 100%;
@@ -111,7 +111,7 @@ h6 {
   margin: 0 auto;
   padding: 2rem;
   /* position: relative; */
-  background-color: #dda0dd;
+  background-color: #ffb6c1;
 }
 .cells {
   width: 40rem;
@@ -193,7 +193,7 @@ h6 {
   font-size: 2rem;
   margin: 0 auto;
   padding: 2rem 1rem;
-  background-color: #dda0dd;
+  background-color: #ffb6c1;
 }
 .info__players {
   display: flex;
