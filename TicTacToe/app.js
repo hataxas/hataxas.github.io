@@ -10,6 +10,7 @@ const field = [
   "empty",
 ];
 
+const body = document.querySelector('.wrapper');
 const cells = document.querySelectorAll(".cell");
 const messageDisplay = document.querySelector("#message");
 const p1Display = document.querySelector("#p1Display");
@@ -19,15 +20,15 @@ const newGameButton = document.querySelector("#new");
 const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
 
-let player = "x";
-let turn = "x turn!";
+let player = "X";
+let turn = "X turn!";
 let scores = {
-  x: 0,
-  o: 0,
+  X: 0,
+  O: 0,
 };
 const classes = {
-  x: "cross",
-  o: "zero",
+  X: "cross",
+  O: "zero",
 };
 let gameOver = false;
 let clicks = 0;
@@ -43,7 +44,6 @@ function init() {
 function fillingCells() {
   for (let i = 0; i < field.length; i++) {
     cells[i].addEventListener("click", function () {
-      playerTurn();
       if (gameOver) {
         alert("Game is already over");
         return;
@@ -52,8 +52,10 @@ function fillingCells() {
         alert("Cell is full! Select another cell!");
         return;
       }
+      playerTurn();
       this.classList.add(classes[player]);
       field[i] = player;
+      checkLines(player);
       if (
         field[0] === "empty" ||
         field[1] === "empty" ||
@@ -62,17 +64,17 @@ function fillingCells() {
         field[4] === "empty" ||
         field[5] === "empty" ||
         field[6] === "empty" ||
-        field[7] === "empty"
+        field[7] === "empty" ||
+        field[8] === "empty"
       ) {
-        checkLines(player);
-        if (player === "x") {
+        if (player === "X") {
           p1Display.textContent = scores[player];
-          turn = "o turn!";
-          player = "o";
+          turn = "O turn!";
+          player = "O";
         } else {
           p2Display.textContent = scores[player];
-          turn = "x turn!";
-          player = "x";
+          turn = "X turn!";
+          player = "X";
         }
       } else {
         messageDisplay.textContent = "Draw!!!";
@@ -120,11 +122,15 @@ function newGame() {
   player2.value = "";
   p1Display.textContent = 0;
   p2Display.textContent = 0;
-  messageDisplay.textContent = "";
-  scores["x"] = 0;
-  scores["o"] = 0;
+  messageDisplay.textContent = "X turn!";
+  scores["X"] = 0;
+  scores["O"] = 0;
 }
 
 function playerTurn() {
-  messageDisplay.textContent = turn;
+  body.addEventListener("mousemove", function () {
+    if (!gameOver) {
+      messageDisplay.textContent = turn;
+    }
+  });
 }
